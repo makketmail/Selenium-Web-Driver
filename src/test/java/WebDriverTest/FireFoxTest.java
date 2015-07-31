@@ -30,7 +30,7 @@ public class FireFoxTest {
   public void testGoogleTitle() throws Exception
   {
       WebElement element = driver.findElement(By.name("q"));
-      element.sendKeys("Cheese!");
+      element.sendKeys("Java");
       element.submit();
       System.out.println("Page title is: " + driver.getTitle());
 
