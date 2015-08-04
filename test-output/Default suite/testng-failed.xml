@@ -5,8 +5,9 @@
     <classes>
       <class name="WebDriverTest.FireFoxTest">
         <methods>
-          <include name="testGoogleTitle"/>
-          <include name="afterTest"/>
+          <include name="testGmailSignin"/>
+          <include name="afterMethod"/>
+          <include name="beforeTest"/>
         </methods>
       </class> <!-- WebDriverTest.FireFoxTest -->
     </classes>

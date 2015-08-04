@@ -22,19 +22,48 @@ public class FireFoxTest {
   {
 	  driver=new FirefoxDriver();
 	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	  driver.get("http://www.google.com");
+	  driver.get("http://www.gmail.com");
+	  driver.manage().window().maximize();
+
 	
   }
 	
   @Test
-  public void testGoogleTitle() throws Exception
+  public void testGmailSignin() throws Exception
   {
-      WebElement element = driver.findElement(By.name("q"));
-      element.sendKeys("Java");
-      element.submit();
-      System.out.println("Page title is: " + driver.getTitle());
+	  WebElement elem=null;
+	  driver.findElement(By.id("Email")).sendKeys("makketmail");
+	  driver.findElement(By.id("next")).click();
 
-      String expected = "Google";
+	  driver.findElement(By.id("Passwd")).sendKeys("123abcdD");
+	
+	  driver.findElement(By.id("signIn")).click();
+      
+      System.out.println("Page title is: " + driver.getTitle());
+      
+      
+      driver.findElement(By.xpath("//div[contains(text(),'COMPOSE')]")).click();
+
+      Thread.sleep(5000);
+      driver.findElement(By.xpath("//textarea[@name='to']")).sendKeys("subin.s.sugunan@gmail.com;makketmail@gmail.com");
+
+      driver.findElement(By.xpath("//input[@name='subjectbox']")).sendKeys("Mail using Selenium");
+
+      Thread.sleep(5000);
+
+      elem = driver.findElement(By.xpath("//div[@class='Ar Au']//div"));
+      elem.click();
+      elem.sendKeys("Hi Subin");
+      
+      WebElement elem1=null;
+        
+      elem1=driver.findElement(By.xpath("//div[class='T-I J-J5-Ji Bq nS T-I-KE L3']//div"));
+    //  elem1= driver.findElement(By.cssSelector("div[class='T-I J-J5-Ji Bq nS T-I-KE L3']>b"));
+      elem1.click();
+   
+      Thread.sleep(3000);
+/*
+      String expected = "Gmail";
       String actual = driver.getTitle();
       Assert.assertEquals(actual, expected);
 
@@ -42,17 +71,11 @@ public class FireFoxTest {
       {
           public Boolean apply(WebDriver d)
           {
-              return d.getTitle().toLowerCase().startsWith("cheese!");
+              return d.getTitle().toLowerCase().startsWith("java");
           }
-      });
+      });*/
 
       System.out.println("Page title is: " + driver.getTitle());
-
-      expected = "Cheese! - Google Search";
-      actual = driver.getTitle();
-      Assert.assertEquals(actual, expected);
-
-
   }
 
   
