@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="WebDriverTest.FireFoxTest">
+      <class name="WebDriverTest.XTVPortal">
         <methods>
-          <include name="testGmailSignin"/>
-          <include name="afterMethod"/>
+          <include name="xtvPortalLogin"/>
           <include name="beforeTest"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- WebDriverTest.FireFoxTest -->
+      </class> <!-- WebDriverTest.XTVPortal -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
